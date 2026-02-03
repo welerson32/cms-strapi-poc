@@ -461,6 +461,36 @@ export interface ApiBannerBanner extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiInstitucionalVideoInstitucionalVideo
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'institucional_videos';
+  info: {
+    displayName: 'Institucional Video';
+    pluralName: 'institucional-videos';
+    singularName: 'institucional-video';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::institucional-video.institucional-video'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    youtubeEmbedId: Schema.Attribute.String;
+  };
+}
+
 export interface ApiNewsletterNewsletter extends Struct.CollectionTypeSchema {
   collectionName: 'newsletters';
   info: {
@@ -1038,6 +1068,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::institucional-video.institucional-video': ApiInstitucionalVideoInstitucionalVideo;
       'api::newsletter.newsletter': ApiNewsletterNewsletter;
       'api::next-event.next-event': ApiNextEventNextEvent;
       'plugin::content-releases.release': PluginContentReleasesRelease;

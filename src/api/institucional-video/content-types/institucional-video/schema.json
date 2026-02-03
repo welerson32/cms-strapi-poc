@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "institucional_videos",
+  "info": {
+    "singularName": "institucional-video",
+    "pluralName": "institucional-videos",
+    "displayName": "Institucional Video"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "youtubeEmbedId": {
+      "type": "string"
+    }
+  }
+}
